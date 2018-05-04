@@ -11,7 +11,7 @@ var app = express();
 
 //call the config file from config.dev.js
 var config = require('./config.dev')
-console.log(config);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
