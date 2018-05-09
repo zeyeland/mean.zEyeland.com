@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-var User = require('../models/users')
+var User = require('../models/users');
 
 
 router.get('/', function(req,res,next){
@@ -11,7 +11,9 @@ router.get('/', function(req,res,next){
 
 /* GET home page. */
 router.get('/register', function(req, res, next) {
-  res.render('users/register', { title: 'Create an Account' });
+  res.render('users/register', {
+    title: 'Create an Account'
+    });
 });
 
 

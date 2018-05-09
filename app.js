@@ -13,6 +13,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiUsersRouter = require('./routes/api/users');
 
+var articlesRouter = require('./routes/articles');
+var apiArticlesRouter = require('./routes/api/articles');
+
 var app = express();
 
 //call the config file from config.dev.js
@@ -93,12 +96,15 @@ app.use(function(req,res,next){
 
 //Session based access control
 app.use(function(req,res,next){
-  //return next();
+  return next();
 
   var whiteList = [
     '/',
     '/favicon.ico',
-    '/users/login'
+    '/users/login',
+    '/users/register',
+    '/articles/register',
+    '/articles'
   ];
 
   if(whiteList.indexOf(req.url) !== -1){
@@ -119,8 +125,8 @@ app.use(function(req,res,next){
     return next();
   }
 
-  return res.redirect('/users/login')
-})
+  return res.redirect('/users/login');
+});
 
 
 // view engine setup
@@ -136,6 +142,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/users', apiUsersRouter);
+app.use('/articles', articlesRouter);
+app.use('/api/articles', apiArticlesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
