@@ -113,6 +113,7 @@ app.use(function(req,res,next){
 
   var subs = [
     '/stylesheets/',
+    '/src/',
   ];
 
   for( var sub of subs){
