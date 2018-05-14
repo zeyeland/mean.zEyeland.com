@@ -102,9 +102,9 @@ router.delete('/:userId', function(req,res,next){
   var userId = req.params.userId;
   User.remove({'_id':userId}, function(err, removed){
     if(err){
-      return res.json({succes:false,error:err});
+      return res.json({success:false,error:err});
     }
-    return res.json({succes:true, status:removed});
+    return res.json({success:true, status:removed});
 
   });
 });
